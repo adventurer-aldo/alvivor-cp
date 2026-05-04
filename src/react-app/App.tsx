@@ -9,57 +9,70 @@ import "./App.css";
 
 function App() {
 	const [count, setCount] = useState(0);
-	const [name, setName] = useState("unknown");
 
 	return (
-		<>
-			<div>
-				<a href="https://vite.dev" target="_blank">
-					<img src={viteLogo} className="logo" alt="Vite logo" />
+		<main className="min-vh-100 bg-dark text-light">
+			<nav className="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-secondary px-4">
+				<a className="navbar-brand fw-bold d-flex align-items-center gap-2" href="#">
+					<img src={viteLogo} height="28" />
+					Alvivor
 				</a>
-				<a href="https://react.dev" target="_blank">
-					<img src={reactLogo} className="logo react" alt="React logo" />
-				</a>
-				<a href="https://hono.dev/" target="_blank">
-					<img src={honoLogo} className="logo cloudflare" alt="Hono logo" />
-				</a>
-				<a href="https://workers.cloudflare.com/" target="_blank">
-					<img
-						src={cloudflareLogo}
-						className="logo cloudflare"
-						alt="Cloudflare logo"
-					/>
-				</a>
-			</div>
-			<h1>Vite + React + Hono + Cloudflare</h1>
-			<div className="card">
-				<button
-					onClick={() => setCount((count) => count + 1)}
-					aria-label="increment"
-				>
-					count is {count}
-				</button>
-				<p>
-					Edit <code>src/App.tsx</code> and save to test HMR
-				</p>
-			</div>
-			<div className="card">
-				<button
-					onClick={() => {
-						fetch("/api/")
-							.then((res) => res.json() as Promise<{ name: string }>)
-							.then((data) => setName(data.name));
-					}}
-					aria-label="get name"
-				>
-					Name from API is: {name}
-				</button>
-				<p>
-					Edit <code>worker/index.ts</code> to change the name
-				</p>
-			</div>
-			<p className="read-the-docs">Click on the logos to learn more</p>
-		</>
+
+				<div className="navbar-nav ms-auto gap-3">
+					<a className="nav-link" href="#">Menu</a>
+					<a className="nav-link" href="#">Current Season</a>
+					<a className="nav-link" href="#">Past Seasons</a>
+					<a className="nav-link" href="#">Statistics</a>
+				</div>
+			</nav>
+
+			<section className="container py-5">
+				<div className="row align-items-center min-vh-100">
+					<div className="col-lg-8">
+						<p className="text-uppercase text-warning fw-bold">
+							Discord Online Reality Game
+						</p>
+
+						<h1 className="display-1 fw-bold d-flex align-items-center gap-3">
+							<img src={reactLogo} height="60" />
+							Alvivor
+						</h1>
+
+						<h2 className="mb-4">
+							Next-level Discord Online Reality Game
+						</h2>
+
+						<p className="lead text-secondary">
+							Compete, scheme, survive, and vote your way through intense
+							Discord seasons built around strategy, social play, challenges,
+							and dramatic eliminations.
+						</p>
+
+						<div className="d-flex gap-3 mt-4">
+							<button className="btn btn-warning btn-lg">
+								Current Season
+							</button>
+
+							<button className="btn btn-outline-light btn-lg">
+								Past Seasons
+							</button>
+
+							<button
+								className="btn btn-secondary btn-lg"
+								onClick={() => setCount(count + 1)}
+							>
+								Test Button ({count})
+							</button>
+						</div>
+
+						<div className="mt-5 d-flex gap-4 align-items-center opacity-75">
+							<img src={honoLogo} height="40" />
+							<img src={cloudflareLogo} height="40" />
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
 	);
 }
 
